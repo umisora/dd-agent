@@ -1,0 +1,6 @@
+init_config:
+
+instances:
+  - name: prometheus_test_master
+    tags: prometheus_test
+    url: http://192.168.10.102:9090/metrics

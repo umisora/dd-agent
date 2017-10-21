@@ -25,7 +25,6 @@ dist/*
 *.exe
 nosetests*.xml
 stats.dat
-conf.d/*.yaml
 !conf.d/network.yaml
 packaging/build/
 packaging/root/
@@ -41,5 +40,3 @@ tests/core/fixtures/flare/dd*
 .bundle
 tags
 
-checks.d
-conf.d
