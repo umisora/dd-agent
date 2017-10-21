@@ -49,7 +49,7 @@ class PrometheusCheck(AgentCheck):
         # and the values are the corresponding metrics names to have in datadog.
         # Note: it is empty in the mother class but will need to be
         # overloaded/hardcoded in the final check not to be counted as custom metric.
-        self.metrics_mapper = {'process_virtual_memory_bytes': 'process.vm.bytes'}
+        self.metrics_mapper = {'process_virtual_memory_bytes': 'process.vm.bytes', 'process_cpu_seconds_total': 'process.cpu.uptime', 'node_memory_Active': 'system.mem.used', 'container_cpu_system_seconds_total':'docker.cpu.total'}
 
         # Some metrics are ignored because they are duplicates or introduce a
         # very high cardinality. Metrics included in this list will be silently
@@ -59,7 +59,7 @@ class PrometheusCheck(AgentCheck):
         # If the `labels_mapper` dictionnary is provided, the metrics labels names
         # in the `labels_mapper` will use the corresponding value as tag name
         # when sending the gauges.
-        self.labels_mapper = {}
+        self.labels_mapper = {'instance':'prometheus'}
 
         # `exclude_labels` is an array of labels names to exclude. Those labels
         # will just not be added as tags when submitting the metric.
